@@ -1,0 +1,29 @@
+version: "3.8"
+services:
+  adjectives:
+    build:
+      context: ..
+      dockerfile: v2/rust.Dockerfile
+    expose:
+      - "3000"
+    ports:
+      - "3001:3000"
+    volumes:
+      - ../resources/adjectives.txt:/list.txt
+  nouns:
+    build:
+      context: ..
+      dockerfile: v2/rust.Dockerfile
+    expose:
+      - "3000"
+    ports:
+      - "3002:3000"
+    volumes:
+      - ../resources/nouns.txt:/list.txt
+  phrase:
+    build:
+      context: ..
+      dockerfile: v2/spring.Dockerfile
+    ports:
+      - "8080:8080"
+
