@@ -3,7 +3,7 @@ services:
   adjectives:
     build:
       context: ..
-      dockerfile: v1/rust.Dockerfile
+      dockerfile: microservice.Dockerfile
     expose:
       - "3000"
     ports:
@@ -13,7 +13,7 @@ services:
   nouns:
     build:
       context: ..
-      dockerfile: v1/rust.Dockerfile
+      dockerfile: microservice.Dockerfile
     expose:
       - "3000"
     ports:
@@ -23,7 +23,7 @@ services:
   phrase:
     build:
       context: ..
-      dockerfile: v1/spring.Dockerfile
+      dockerfile: frontend.Dockerfile
     ports:
       - "8080:8080"
 
