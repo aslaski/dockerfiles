@@ -12,7 +12,7 @@ public class Service {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping
+    @GetMapping(produces = "text/plain; charset=utf-8")
     public String phrase() {
         final ResponseEntity<String> adjective = restTemplate
                 .getForEntity("http://adjectives:3000/", String.class);
