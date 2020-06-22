@@ -2,9 +2,9 @@ version: "3.8"
 services:
   adjectives:
     image: microservice
-    # build:
-    #   context: ..
-    #   dockerfile: v1/microservice.Dockerfile
+    build:
+      context: ..
+      dockerfile: v1/microservice.Dockerfile
     expose:
       - "3000"
     ports:
