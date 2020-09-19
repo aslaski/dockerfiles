@@ -1,4 +1,4 @@
-FROM rust:1.44 AS builder
+FROM rust:1.46 AS builder
 
 COPY rust_http_server /rust_http_server
 WORKDIR /rust_http_server

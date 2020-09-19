@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  adjectives:
+    image: microservice
+    build:
+      context: ..
+      dockerfile: v1.1/microservice.Dockerfile
+    expose:
+      - "3000"
+    ports:
+      - "3001:3000"
+    volumes:
+      - ../resources/adjectives.txt:/list.txt
+  nouns:
+    image: microservice
+    expose:
+      - "3000"
+    ports:
+      - "3002:3000"
+    volumes:
+      - ../resources/nouns.txt:/list.txt
+  frontend:
+    image: frontend
+    build:
+      context: ..
+      dockerfile: v1.1/frontend.Dockerfile
+    ports:
+      - "8080:8080"
+
+
