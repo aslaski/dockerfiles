@@ -3,14 +3,14 @@ services:
   adjectives:
     image: microservice
     build:
-      context: ..
-      dockerfile: v3/microservice.Dockerfile
+      context: microservice
+      dockerfile: v4-experimental-cache.Dockerfile
     expose:
       - "3000"
     ports:
       - "3001:3000"
     volumes:
-      - ../resources/adjectives.txt:/list.txt
+      - ./microservice/resources/adjectives.txt:/list.txt:ro
   nouns:
     image: microservice
     expose:
@@ -18,13 +18,11 @@ services:
     ports:
       - "3002:3000"
     volumes:
-      - ../resources/nouns.txt:/list.txt
+      - ./microservice/resources/nouns.txt:/list.txt:ro
   frontend:
     image: frontend
     build:
-      context: ..
-      dockerfile: v3/frontend.Dockerfile
+      context: frontend
+      dockerfile: v3-experimental-cache.Dockerfile
     ports:
       - "8080:8080"
-
-
